@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：Element_UI_Drawer
+  File name(文件名): test5
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/5/8
+  Time(创建时间)： 21:17
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <script src="js/vue.js"></script>
+    <script src="js/element-ui.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <el-button type="success" @click="isShow=true">点击打开</el-button>
+
+    <el-drawer title="标题" :close-on-press-escape="true" :visible.sync="isShow" direction="rtl"
+               :before-close="handleClose">
+        <span>文字测试<br>
+        按esc键关闭</span>
+    </el-drawer>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            isShow: false,
+        },
+        methods: {
+            handleClose: function ()
+            {
+                this.isShow = false;
+                this.$message({
+                    type: "success",
+                    center: true,
+                    message: "成功关闭",
+                })
+            }
+        },
+        mounted()
+        {
+
+        }
+    })
+</script>
+</body>
+</html>
